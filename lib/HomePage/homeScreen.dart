@@ -343,37 +343,76 @@ class HomeScreen extends StatelessWidget {
                     30.heightBox,
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: List.generate(3, (index) => Column(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(left:15,right:15),
-                              child: Column(
+                      child:Row(
+                        children: List.generate(3, (index) => Container(
+                          height: size.height/2.2,
+                          width: size.width/2,
+                          margin: EdgeInsets.only(left:30),
+                          padding: EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            boxShadow: [BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 6.0,
+                            )],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.asset("assets/images/venue.jpg",height:size.height/3.5,fit: BoxFit.cover,),
+                                ),
+                              ),
+                              10.heightBox,
+                              "The Dome Cafe".text.fontWeight(FontWeight.bold).color(purple).size(20).make(),
+                              Row(
                                 children: [
-                                  Container(
-                                    width:size.width/2.1,
-                                    height: size.height/3.5,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: ClipRRect(borderRadius:BorderRadius.circular(20),child: Image.asset("assets/images/venue.jpg",fit:BoxFit.cover)),
-                                  ),
-                                  5.heightBox,
-                                  Column(
-                                    children: [
-                                      "The Dome Cafe".text.color(purple).size(18).fontWeight(FontWeight.w500).make(),
-                                      "The Dome Cafe".text.color(purple).size(18).fontWeight(FontWeight.w500).make(),
-                                      "The Dome Cafe".text.color(purple).size(18).fontWeight(FontWeight.w500).make(),
-                                    ],
-                                  ),
+                                  "HSR Layout".text.fontWeight(FontWeight.w400).color(Colors.grey[400]).size(14).make(),
+                                  5.widthBox,
+                                  Icon(Icons.circle,size:5,color: Colors.grey[400],),
+                                  5.widthBox,
+                                  "4.2 KM".text.fontWeight(FontWeight.w400).color(Colors.grey[400]).size(14).make(),
                                 ],
                               ),
-                            ),
-                          ],
+                              "8 packages Available".text.fontWeight(FontWeight.w400).color(Colors.grey[400]).size(14).make(),
+                              5.heightBox,
+                              Row(
+                                children: [
+                                  Container(
+                                      height:25,
+                                      width:65,
+                                      padding: EdgeInsets.only(left:10),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(50),
+                                          color: Colors.green[900]
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.star,size:15,color: Colors.white,),
+                                          5.widthBox,
+                                          "4.5".text.fontWeight(FontWeight.w400).color(Colors.white).size(14).make(),
+                                        ],
+                                      )
+                                  ),
+                                  5.widthBox,
+                                  Icon(Icons.circle,size:5,color: Colors.grey[400],),
+                                  Icon(Icons.currency_rupee,size:15,color: Colors.grey[400],),
+                                  Icon(Icons.currency_rupee,size:15,color: Colors.grey[400],),
+                                  Icon(Icons.circle,size:5,color: Colors.grey[400],),
+                                  Icon(Icons.check_box_outlined,size:20,color: Colors.green[900],),
+                                  Icon(Icons.check_box_outlined,size:20,color: Colors.red[700],),
+                                ],
+                              ),
+                            ],
+                          ),
                         )),
-                      ),
-                    )
+                      )
+                    ),
+                    
 
                   ],
                 ),
