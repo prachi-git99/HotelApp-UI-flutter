@@ -24,4 +24,4 @@ const syloList2 =[
 const syloColor1 = [lightblue,lightpink,lightgreen];
 const syloColor2 = [lightyellow,lightgreen,lightpink];
 
-const customer = ["men1.jpg","men2.jpg"];
+const customer = ["men1.jpg","men2.jpg","men3.jpg"];

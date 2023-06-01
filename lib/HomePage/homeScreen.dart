@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: Container(
         child: Column(
           children: [
@@ -343,7 +344,7 @@ class HomeScreen extends StatelessWidget {
                         )
                     ),
                     30.heightBox,
-                    //venues section
+                    //popular venues section
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       physics: BouncingScrollPhysics(),
@@ -561,7 +562,7 @@ class HomeScreen extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         physics: BouncingScrollPhysics(),
                         child: Row(
-                          children:List.generate(2, (index) => Container(
+                          children:List.generate(3, (index) => Container(
                               width: size.width/1.5,
                               height: size.height/1.9,
                               margin: EdgeInsets.only(left: 15,right: 15),
@@ -586,7 +587,7 @@ class HomeScreen extends StatelessWidget {
                                       width:100,
                                       height: 100,
                                       decoration: BoxDecoration(
-                                        color: Colors.grey.withOpacity(0.7),
+                                        color: Colors.black38,
                                         borderRadius: BorderRadius.circular(100)
                                       ),
                                     ),
@@ -600,6 +601,121 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                    30.heightBox,
+                    //text Venue on budget
+                    Container(
+                        alignment:Alignment.topLeft,
+                        margin: EdgeInsets.only(left:30),
+                        child: "Venues on a Budget!".text.fontWeight(FontWeight.bold).color(Colors.black).size(18).make()
+                    ),
+                    30.heightBox,
+                    //list venues section
+                    Column(
+                      children: List.generate(3, (index) => Container(
+                        height: size.height/5,
+                        width: size.width,
+                        margin: EdgeInsets.only(left:30,top: 10,bottom: 10,right: 30),
+                        padding: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          boxShadow: [BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 6.0,
+                          )],
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Flexible(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child:Stack(
+                                  children: [
+                                    Image.asset("assets/images/venue.jpg",height:size.height/3.5,fit: BoxFit.cover,),
+                                    Align(
+                                      alignment: Alignment.topRight,
+                                      child: Container(
+                                        margin: EdgeInsets.all(10),
+                                        width:40,
+                                        height: 40,
+                                        decoration: BoxDecoration(
+                                            color: Colors.black38,
+                                            borderRadius: BorderRadius.circular(100)
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                        margin: EdgeInsets.all(15),
+                                        alignment:Alignment.topRight,
+                                        child: Icon(Icons.favorite_border,size:30,color: white,)
+                                    ),
+                                  ],
+                                ) ),
+                            ),
+                            10.widthBox,
+                            Column(
+                              children: [
+                                "The Dome Cafe".text.fontWeight(FontWeight.bold).color(purple).size(20).make(),
+                                Row(
+                                  children: [
+                                    "HSR Layout".text.fontWeight(FontWeight.w400).color(Colors.grey[400]).size(14).make(),
+                                    5.widthBox,
+                                    Icon(Icons.circle,size:5,color: Colors.grey[400],),
+                                    5.widthBox,
+                                    "4.2 KM".text.fontWeight(FontWeight.w400).color(Colors.grey[400]).size(14).make(),
+                                  ],
+                                ),
+                                "8 packages Available".text.fontWeight(FontWeight.w400).color(Colors.grey[400]).size(14).make(),
+                                Row(
+                                  children: [
+                                    Container(
+                                        height:25,
+                                        width:65,
+                                        padding: EdgeInsets.only(left:10),
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(50),
+                                            color: Colors.green[900]
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.star,size:15,color: Colors.white,),
+                                            5.widthBox,
+                                            "4.5".text.fontWeight(FontWeight.w400).color(Colors.white).size(14).make(),
+                                          ],
+                                        )
+                                    ),
+                                    5.widthBox,
+                                    Icon(Icons.circle,size:5,color: Colors.grey[400],),
+                                    Icon(Icons.currency_rupee,size:15,color: Colors.grey[400],),
+                                    Icon(Icons.currency_rupee,size:15,color: Colors.grey[400],),
+                                    Icon(Icons.circle,size:5,color: Colors.grey[400],),
+                                    Icon(Icons.circle,size:20,color: Colors.green[900],),
+                                    Icon(Icons.circle,size:20,color: Colors.red[700],),
+                                  ],
+                                ),
+                                10.heightBox,
+                                Container(
+                                  width: size.width/2.5,
+                                  height: size.height/22,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    gradient: LinearGradient(
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                        colors: [purple,pink,darkpink,lightpurple]
+                                    ),
+                                  ),
+                                  child: Align(alignment:Alignment.center,child: "Sylo Select".text.white.fontWeight(FontWeight.w500).make()),
+                                )
+                              ],
+                            ),
+
+                          ],
+                        ),
+                      )),
+                    )
+
 
 
 
