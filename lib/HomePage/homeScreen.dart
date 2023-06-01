@@ -6,6 +6,7 @@ import 'package:syle/consts/colors.dart';
 import 'package:syle/consts/lists.dart';
 import 'package:syle/consts/styles.dart';
 import 'package:syle/widgets/diagonalLines.dart';
+import 'package:syle/widgets/syloSelectBox.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -103,7 +104,7 @@ class HomeScreen extends StatelessWidget {
                   fillColor: whiteColor,
                   hintText:" Search for venues",
                   hintStyle: TextStyle(
-                    color: textfieldGrey,
+                    color: fontGrey,
                     fontWeight: FontWeight.w400,
                     fontSize:16
                   ),
@@ -121,6 +122,7 @@ class HomeScreen extends StatelessWidget {
                     //Offer section
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
+                      physics: BouncingScrollPhysics(),
                       child: Row(
                         children: [
                           Container(
@@ -341,13 +343,15 @@ class HomeScreen extends StatelessWidget {
                         )
                     ),
                     30.heightBox,
+                    //venues section
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
+                      physics: BouncingScrollPhysics(),
                       child:Row(
                         children: List.generate(3, (index) => Container(
                           height: size.height/2.2,
                           width: size.width/2,
-                          margin: EdgeInsets.only(left:30),
+                          margin: EdgeInsets.only(left:30,top: 10,bottom: 10),
                           padding: EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -403,8 +407,8 @@ class HomeScreen extends StatelessWidget {
                                   Icon(Icons.currency_rupee,size:15,color: Colors.grey[400],),
                                   Icon(Icons.currency_rupee,size:15,color: Colors.grey[400],),
                                   Icon(Icons.circle,size:5,color: Colors.grey[400],),
-                                  Icon(Icons.check_box_outlined,size:20,color: Colors.green[900],),
-                                  Icon(Icons.check_box_outlined,size:20,color: Colors.red[700],),
+                                  Icon(Icons.circle,size:20,color: Colors.green[900],),
+                                  Icon(Icons.circle,size:20,color: Colors.red[700],),
                                 ],
                               ),
                             ],
@@ -412,7 +416,195 @@ class HomeScreen extends StatelessWidget {
                         )),
                       )
                     ),
-                    
+                    20.heightBox,
+                    //sylo select section
+                    Row(
+                      children: [
+                        ShaderMask(
+                          shaderCallback: (Rect bounds) {
+                            return LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [purple,pink,darkpink,lightpurple],
+                            ).createShader(bounds);
+                          },
+                          child:Container(
+                            height: 3,
+                            width: size.width/6,
+                            color: Colors.white,
+                          ),
+                        ),
+                        ShaderMask(
+                          shaderCallback: (Rect bounds) {
+                            return LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [purple,pink,darkpink,lightpurple],
+                            ).createShader(bounds);
+                          },
+                          child:Icon(
+                            Icons.circle,
+                            color: Colors.white,
+                            size: 30.0,
+                          ),
+                        ),
+                        Container(
+                          height: size.height/8,
+                          width: size.width/2,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ShaderMask(
+                                shaderCallback: (Rect bounds) {
+                                  return LinearGradient(
+                                    begin: Alignment.centerLeft,
+                                    end: Alignment.centerRight,
+                                    colors: [purple,pink,darkpink,lightpurple],
+                                  ).createShader(bounds);
+                                },
+                                child:"SYLO Select".text.fontWeight(FontWeight.bold).size(24).white.make(),
+                              ),
+                              "Exclusive Celebration Plans".text.fontWeight(FontWeight.w400).size(12).color(purple).make(),
+                            ],
+                          ),
+                        ),
+                        ShaderMask(
+                          shaderCallback: (Rect bounds) {
+                            return LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [purple,pink,darkpink,lightpurple],
+                            ).createShader(bounds);
+                          },
+                          child:Icon(
+                            Icons.circle,
+                            color: Colors.white,
+                            size: 30.0,
+                          ),
+                        ),
+                        ShaderMask(
+                          shaderCallback: (Rect bounds) {
+                            return LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [purple,pink,darkpink,lightpurple],
+                            ).createShader(bounds);
+                          },
+                          child:Container(
+                            height: 3,
+                            width: size.width/6,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                    20.heightBox,
+                    //sylo boxes
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15,right:15),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        physics: BouncingScrollPhysics(),
+                        child: Row(
+                          children:List.generate(3, (index) => Column(
+                            children: [
+                              10.heightBox,
+                              SyloBox(size,syloColor1[index],white,syloList1[index]),
+                              20.heightBox,
+                              SyloBox(size,syloColor2[index],white,syloList2[index]),
+                              10.heightBox,
+                            ],
+                          )),
+                        ),
+                      ),
+                    ),
+                    20.heightBox,
+                    ShaderMask(
+                      shaderCallback: (Rect bounds) {
+                        return LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [purple,pink,darkpink,lightpurple],
+                        ).createShader(bounds);
+                      },
+                      child:Container(
+                        height: 3,
+                        width: size.width,
+                        color: Colors.white,
+                      ),
+                    ),
+                    30.heightBox,
+                    //text customer
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        "See what our".text.fontWeight(FontWeight.bold).color(Colors.black).size(20).make(),
+                        ShaderMask(
+                          shaderCallback: (Rect bounds) {
+                            return LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [purple,pink,darkpink,lightpurple],
+                            ).createShader(bounds);
+                          },
+                          child:" customers ".text.fontWeight(FontWeight.bold).white.size(20).make(),
+                        ),
+                        "Say!".text.fontWeight(FontWeight.bold).color(Colors.black).size(20).make(),
+
+                      ],
+                    ),
+                    30.heightBox,
+                    //customer section
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15,right:15),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        physics: BouncingScrollPhysics(),
+                        child: Row(
+                          children:List.generate(2, (index) => Container(
+                              width: size.width/1.5,
+                              height: size.height/1.9,
+                              margin: EdgeInsets.only(left: 15,right: 15),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(
+                                  color: pink
+                                )
+                              ),
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.all(10.0),
+                                    width: size.width/1.5,
+                                    height: size.height/1.9,
+                                    child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset("assets/images/${customer[index]}",fit: BoxFit.cover,)),
+                                  ),
+                                  Center(
+                                    child: Container(
+                                      width:100,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey.withOpacity(0.7),
+                                        borderRadius: BorderRadius.circular(100)
+                                      ),
+                                    ),
+                                  ),
+                                  Center(
+                                    child: Icon(Icons.play_arrow_sharp,size:60,color: white,),
+                                  )
+                                ],
+                              )
+                          )),
+                        ),
+                      ),
+                    ),
+
+
+
+
+
 
                   ],
                 ),
